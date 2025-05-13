@@ -1,0 +1,15 @@
+# render.yaml
+services:
+  - type: web
+    name: keycloak
+    env: docker
+    branch: main
+    dockerfilePath: Dockerfile
+
+    # Admin user (no lo metas en el Dockerfile)
+    envVars:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+
+    # Ruta para el health check (dev-mode expone /)
+    healthCheckPath: /
